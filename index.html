@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar Portfolio</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body>
+    <!-- Contenedor de imagen de fondo -->
+    <div class="img-class-cont">
+      <!-- Navbar inicial (visible desde el inicio) -->
+      <nav id="mainNav" class="navbar navbar-expand-lg initial-navbar">
+        <div class="container-fluid px-4">
+          <a class="navbar-brand brand-text logo-hidden" href="#">
+            TamalSen<span style="color: white">.</span
+            ><span class="cursor">_</span>
+          </a>
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav nav-container">
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  ><span class="nav-number">01</span
+                  ><span class="nav-comment">// home</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  ><span class="nav-number">02</span
+                  ><span class="nav-comment">// expertise</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  ><span class="nav-number">03</span
+                  ><span class="nav-comment">// work</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  ><span class="nav-number">04</span
+                  ><span class="nav-comment">// experience</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  ><span class="nav-number">05</span
+                  ><span class="nav-comment">// contact</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Navbar fijo que aparece al hacer scroll -->
+      <nav class="navbar navbar-expand-lg fixed-navbar" id="fixedNav">
+        <div class="container-fluid px-4">
+          <a class="navbar-brand brand-text" href="#">
+            TamalSen<span class="cursor">_</span>
+          </a>
+
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarNavFixed"
+          >
+            <ul class="navbar-nav nav-container">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="nav-number">01</span>
+                  <span class="nav-comment">// home</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="nav-number">02</span>
+                  <span class="nav-comment">// expertise</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="nav-number">03</span>
+                  <span class="nav-comment">// work</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="nav-number">04</span>
+                  <span class="nav-comment">// experience</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="nav-number">05</span>
+                  <span class="nav-comment">// contact</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section
+        class="hero-section d-flex align-items-center justify-content-center text-center"
+      >
+        <div class="container" style="margin-top: -10rem">
+          <div class="hero-content">
+            <h1 class="hero-title">TAMAL SEN</h1>
+            <p class="hero-subtitle">
+              SOFTWARE ENGINEER, FRONT END & APP DEVELOPER.
+            </p>
+          </div>
+
+          <!-- Logos Slider -->
+          <div class="as-featured-container">
+            <p class="featured-text">AS FEATURED IN</p>
+            <div class="logos-slider">
+              <div class="logos-track">
+                <img src="logo1.png" alt="CareerFoundry" />
+                <img src="logo2.png" alt="Frontend Mentor" />
+                <img src="logo3.png" alt="WeAreDevelopers" />
+                <img src="logo4.png" alt="Colorlib" />
+                <img src="logo5.png" alt="Masai" />
+                <!-- Repetidos para animación continua -->
+                <img src="logo1.png" alt="CareerFoundry" />
+                <img src="logo2.png" alt="Frontend Mentor" />
+                <img src="logo3.png" alt="WeAreDevelopers" />
+                <img src="logo4.png" alt="Colorlib" />
+                <img src="logo5.png" alt="Masai" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Scroll Indicator -->
+          <div class="scroll-indicator-wrapper">
+            <div class="mouse-button">
+              <div class="mouse-wheel"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Resto de tu contenido -->
+    <section class="expertise-section  position-relative section-skill">
+      <div class="container py-5">
+        <h2 class="section-title text-center mb-5">My Expertise</h2>
+
+        <div class="expertise-grid row g-0 border">
+          <div class="col-lg-4 expertise-card border-end p-4 p-md-5">
+            <div class="d-flex align-items-start mb-3">
+              <img
+                src="icon-monitor.svg"
+                class="expertise-icon me-3"
+                alt="Monitor"
+              />
+              <div>
+                <h3 class="card-main-title underline-pink">
+                  Software Development
+                </h3>
+              </div>
+            </div>
+            <div class="code-block">
+              <span class="code-tag">&lt;h3&gt;</span>
+              <p class="code-content">
+                Experienced in both functional and OOP: Dart, Python, Java,
+                JavaScript, TypeScript.
+              </p>
+              <span class="code-tag">&lt;/h3&gt;</span>
+            </div>
+          </div>
+
+          <div class="col-lg-4 expertise-card border-end p-4 p-md-5">
+            <div class="d-flex align-items-start mb-3">
+              <img src="icon-atom.svg" class="expertise-icon me-3" alt="Atom" />
+              <div>
+                <h3 class="card-main-title underline-blue">
+                  Frontend Dev React, NextJS
+                </h3>
+              </div>
+            </div>
+            <div class="code-block">
+              <span class="code-tag">&lt;h3&gt;</span>
+              <p class="code-content">
+                Passionate about UI/UX. Over 5 years of development experience
+                in HTML, CSS, JS, React and NextJS frameworks.
+              </p>
+              <span class="code-tag">&lt;/h3&gt;</span>
+            </div>
+          </div>
+
+          <div class="col-lg-4 expertise-card p-4 p-md-5">
+            <div class="d-flex align-items-start mb-3">
+              <img
+                src="xd.svg"
+                class="expertise-icon me-3"
+                alt="Flutter"
+              />
+              <div>
+                <h3 class="card-main-title underline-orange">
+                  Flutter Dev Android, iOS
+                </h3>
+              </div>
+            </div>
+            <div class="code-block">
+              <span class="code-tag">&lt;h3&gt;</span>
+              <p class="code-content">
+                Skilled in developing hybrid mobile apps and cross-platform
+                solutions using the Flutter framework.
+              </p>
+              <span class="code-tag">&lt;/h3&gt;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="expertise-bg-bottom ">
+        <img src="code-img.webp" alt="Code Background" class="bg-code-img" />
+      </div>
+    </section>
+
+    <!-- div -->
+    <div class="text-primary conteiner">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda unde
+      inventore nemo, dolor libero fugit numquam blanditiis eveniet pariatur
+      optio beatae at similique possimus temporibus, voluptatem eum qui
+      doloribus. Neque. Corporis animi aliquid modi atque dicta assumenda vitae
+      inventore obcaecati provident exercitationem ut sunt at quaerat
+      doloremque, culpa quod, deleniti iste. Placeat asperiores doloribus
+      incidunt aperiam veniam ea iste fuga? Velit suscipit, consequatur animi
+      earum adipisci, aut praesentium enim, tempora corrupti fuga maiores. Dicta
+      suscipit debitis est quaerat perferendis aliquam ipsam reprehenderit
+      officiis. Quam odio, eveniet expedita voluptatibus aliquam error!
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

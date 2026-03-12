@@ -1,0 +1,434 @@
+:root {
+  --bg-dark: #1d2027;
+  --brand-cyan: #70d9e3;
+  --cursor-purple: #ae81ff;
+  --text-white: #ffffff;
+  --comment-gray: #a9b1d6;
+}
+
+body {
+  font-family: "Courier New", monospace;
+  margin: 0;
+  background-color: var(--bg-dark);
+}
+
+/* Imagen de fondo */
+.img-class-cont {
+  background-image: url("prueba.jfif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+/* ===========================================================
+   Navbar inicial y fijo
+=========================================================== */
+.initial-navbar,
+.fixed-navbar {
+  width: 100%;
+  padding: 2rem 0;
+  transition:
+    transform 0.3s ease,
+    background 0.4s ease,
+    padding 0.3s ease;
+}
+
+.initial-navbar {
+  width: 100%;
+  padding: 2rem 0;
+  position: relative;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(11, 17, 26, 0.9);
+  padding: 1rem 0;
+  display: none; /* oculto por defecto */
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.fixed-navbar.show {
+  display: flex;
+}
+
+/* Logo */
+.navbar-brand {
+  position: absolute;
+  left: 3rem;
+}
+
+.brand-text {
+  color: var(--brand-cyan) !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: opacity 0.3s;
+}
+
+.cursor {
+  color: var(--cursor-purple);
+}
+
+/* Menú */
+.nav-container:hover .nav-item {
+  opacity: 0.4;
+}
+
+.nav-container .nav-item {
+  transition: opacity 0.3s ease;
+  padding: 0 15px;
+}
+
+.nav-container .nav-item:hover {
+  opacity: 1;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.nav-number {
+  font-size: 0.65rem;
+  color: var(--comment-gray);
+  margin-bottom: -5px;
+}
+
+.nav-comment {
+  color: var(--text-white);
+  font-size: 1rem;
+}
+
+/* Ocultar logo */
+.fixed-navbar .navbar-brand.hide-logo {
+  display: none;
+}
+
+/* ===========================================================
+   Hero Section
+=========================================================== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  /* margin-bottom: 10rem; */
+}
+
+.hero-title {
+  font-size: clamp(3rem, 18vw, 9rem);
+  font-weight: 800;
+  /* letter-spacing: 5px; */
+  /* margin-bottom: 5rem; */
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  font-weight: 500;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #e0e0e0;
+}
+
+/* Logos Slider */
+.as-featured-container {
+  position: relative;
+  z-index: 2;
+  margin-top: 5rem;
+}
+
+.featured-text {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+.logos-slider {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.logos-track {
+  display: inline-block;
+  animation: scrollLogos 20s linear infinite;
+}
+
+.logos-track img {
+  height: 30px;
+  margin: 0 40px;
+  filter: grayscale(1) brightness(0.8);
+  transition: filter 0.3s;
+}
+
+@keyframes scrollLogos {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Scroll Indicator */
+.scroll-indicator-wrapper {
+  margin-top: 3rem;
+}
+
+.mouse-button {
+  width: 26px;
+  height: 44px;
+  border-radius: 15px;
+  border: 2px solid white;
+  margin: 0 auto;
+  position: relative;
+  animation: borderPhase 4s infinite ease-in-out;
+}
+
+.mouse-wheel {
+  width: 4px;
+  height: 8px;
+  background-color: white;
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollWheel 2s infinite;
+}
+
+@keyframes borderPhase {
+  0%,
+  100% {
+    border-color: white;
+  }
+  50% {
+    border-color: #ae81ff;
+  }
+}
+
+@keyframes scrollWheel {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 15px);
+  }
+}
+
+/* ===========================================================
+   skill Section
+=========================================================== */
+
+.expertise-section {
+  background-color: var(--bg-dark);
+  color: #fff;
+  overflow: hidden;
+  /* margin-bottom: -500px; */
+}
+
+.section-title {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+/* Tarjetas y Bordes */
+.expertise-grid {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.02);
+  position: relative;
+  z-index: 2;
+}
+
+.expertise-card {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Iconos */
+.expertise-icon {
+  width: 40px;
+  height: auto;
+}
+
+/* Títulos con subrayado decorativo */
+.card-main-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.card-main-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 60%;
+  height: 4px;
+}
+
+.underline-pink::after {
+  background-color: #ff2d55;
+}
+.underline-blue::after {
+  background-color: #007aff;
+}
+.underline-orange::after {
+  background-color: #ff9500;
+}
+
+/* Estilo Código */
+.code-block {
+  margin-top: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 15px;
+}
+
+.code-tag {
+  color: #555;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  display: block;
+}
+
+.code-content {
+  color: #e0e0e0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+/* Imagen de fondo inferior siempre pegada */
+.expertise-bg-bottom {
+  position: relative; /* Absoluta respecto al contenedor padre */
+  bottom: 0; /* Siempre pegada al fondo */
+  left: 50%; /* Centrada horizontalmente */
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 700px;
+  opacity: 0.3;
+  z-index: 0; /* Asegura que esté detrás del contenido */
+  pointer-events: none; /* No interfiere con clics */
+  top: -50px;
+
+}
+
+/* Imagen dentro del contenedor */
+.bg-code-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mask-image: linear-gradient(to top, transparent, black);
+  -webkit-mask-image: linear-gradient(to top, transparent, black);
+}
+
+
+/* Colores del Tema */
+:root {
+    --footer-bg: #0a0a0a;
+    --accent-blue: #007bff;
+    --accent-purple: #ae81ff;
+    --light-purple: #9b6dff;
+}
+
+.footer-section {
+    background-color: var(--footer-bg);
+    color: white;
+}
+
+.contact-block {
+    background-color: #000;
+}
+
+/* Menú de Redes Sociales y Efecto Hover */
+.social-menu li {
+    margin-bottom: 10px;
+}
+
+.social-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.social-menu a:hover {
+    color: var(--accent-blue) !important; /* Cambio a azul solicitado */
+    padding-left: 8px;
+}
+
+/* Email con subrayado */
+.email-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 3px solid var(--accent-purple);
+    padding-bottom: 5px;
+}
+
+/* Bloques de Testimonios */
+.bg-purple { background-color: var(--accent-purple); }
+.bg-blue { background-color: var(--accent-blue); }
+.bg-purple-light { background-color: var(--light-purple); }
+
+.testimonial-block {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testimonial-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.quote-icon {
+    font-size: 3rem;
+    opacity: 0.3;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .testimonial-block {
+        min-height: auto;
+    }
+}
