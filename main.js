@@ -18,7 +18,7 @@ window.addEventListener("scroll", () => {
   fixedNav.classList.toggle("show", scrolled);
 
   // Cambiar colores de los comentarios y números del navbar
-  const color = scrolled ? "#70d9e3" : "#ffffff";
+  const color = scrolled ? "#68dafc" : "#ffffff";
   const numberColor = scrolled ? "#70d9e3" : "#a9b1d6";
 
   fixedNavComments.forEach((el) => (el.style.color = color));
@@ -28,4 +28,39 @@ window.addEventListener("scroll", () => {
   fixedNavBrand.classList.toggle("hide-logo", scrolled);
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const observerOptions = {
+    threshold: 0.2,
+  };
 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, observerOptions);
+
+  // Seleccionamos los elementos que deben animarse
+  const animatedElements = document.querySelectorAll(".animate-on-scroll");
+  animatedElements.forEach((el) => observer.observe(el));
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const accordion = document.getElementById('experienceAccordion');
+    
+    // Podemos añadir un listener para cambiar clases o sonidos si fuera necesario
+    // Pero con Bootstrap 5.3 el comportamiento ya viene integrado por data-attributes.
+    
+    const accordionButtons = document.querySelectorAll('.accordion-button');
+    
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Animación extra de escala al presionar
+            button.style.transform = 'scale(0.99)';
+            setTimeout(() => button.style.transform = 'scale(1)', 100);
+        });
+    });
+});
