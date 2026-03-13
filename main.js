@@ -46,21 +46,29 @@ document.addEventListener("DOMContentLoaded", () => {
   animatedElements.forEach((el) => observer.observe(el));
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const accordion = document.getElementById("experienceAccordion");
 
+  // Podemos añadir un listener para cambiar clases o sonidos si fuera necesario
+  // Pero con Bootstrap 5.3 el comportamiento ya viene integrado por data-attributes.
 
-document.addEventListener('DOMContentLoaded', function() {
-    const accordion = document.getElementById('experienceAccordion');
-    
-    // Podemos añadir un listener para cambiar clases o sonidos si fuera necesario
-    // Pero con Bootstrap 5.3 el comportamiento ya viene integrado por data-attributes.
-    
-    const accordionButtons = document.querySelectorAll('.accordion-button');
-    
-    accordionButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Animación extra de escala al presionar
-            button.style.transform = 'scale(0.99)';
-            setTimeout(() => button.style.transform = 'scale(1)', 100);
-        });
+  const accordionButtons = document.querySelectorAll(".accordion-button");
+
+  accordionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Animación extra de escala al presionar
+      button.style.transform = "scale(0.99)";
+      setTimeout(() => (button.style.transform = "scale(1)"), 100);
     });
+  });
+});
+
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    const menu = document.querySelector(".navbar-collapse");
+    const bsCollapse = bootstrap.Collapse.getInstance(menu);
+    if (bsCollapse) {
+      bsCollapse.hide();
+    }
+  });
 });
