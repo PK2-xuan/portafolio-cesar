@@ -72,3 +72,16 @@ document.querySelectorAll(".nav-link").forEach((link) => {
     }
   });
 });
+
+
+
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+        }
+    });
+});
+
+document.querySelectorAll('.work-content, .phone-mockup-container').forEach(el => observer.observe(el));

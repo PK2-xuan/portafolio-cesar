@@ -381,17 +381,11 @@ body {
   background-color: #080808;
 }
 
-
-
-
-
-
-
 .experience-section {
   background-color: #1a191d;
   color: #fff;
   font-family: Inter, sans-serif;
-   min-height: 900px;
+  min-height: 900px;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -535,5 +529,107 @@ body {
   .navbar-brand {
     position: relative;
     left: 0;
+  }
+}
+
+/*  */
+
+/* Colores y Tipografía */
+.work-section {
+  background-color: #1a191d;
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.section-title {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: #a9b1d6;
+  max-width: 450px;
+  line-height: 1.6;
+}
+
+/* Etiquetas del Proyecto Destacado */
+.featured-project-label {
+  position: absolute;
+  left: 0;
+  bottom: 10%;
+  z-index: 10;
+}
+
+.btn-primary-custom {
+  background-color: #7b2cf3;
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  background-color: #9b6dff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(123, 44, 243, 0.3);
+}
+
+/* Mockup del Celular */
+/* .phone-mockup-container {
+  transform: rotate(15deg);
+  box-shadow: -20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  overflow: hidden;
+  max-width: 300px;
+  border: 8px solid #333;
+} */
+
+.phone-gif {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Flecha Curva */
+.curved-arrow {
+  /* Ocultamos la imagen original con CSS */
+  display: block;
+  width: 220px; 
+  height: auto;
+  min-height: 120px;
+
+  /* Definimos el color que queremos que sea la flecha */
+  background-color: var(--cursor-purple, #7b2cf3);
+
+  /* Usamos la imagen original como máscara */
+  -webkit-mask-image: url("right-drawn-arrow.png");
+  mask-image: url("right-drawn-arrow.png");
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  transform: rotate(180deg);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .section-title {
+    font-size: 3.5rem;
+  }
+  .featured-project-label {
+    position: static;
+    margin-top: 3rem;
+    text-align: center;
+  }
+  .phone-mockup-container {
+    margin-top: 2rem;
+    transform: rotate(0deg);
   }
 }
