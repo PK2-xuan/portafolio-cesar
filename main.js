@@ -73,15 +73,87 @@ document.querySelectorAll(".nav-link").forEach((link) => {
   });
 });
 
-
-
-
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
-        }
-    });
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animate-fade-in");
+    }
+  });
 });
 
-document.querySelectorAll('.work-content, .phone-mockup-container').forEach(el => observer.observe(el));
+document
+  .querySelectorAll(".work-content, .phone-mockup-container")
+  .forEach((el) => observer.observe(el));
+
+// cursor
+
+const cursorDot = document.querySelector(".cursor-dot");
+const cursorOutline = document.querySelector(".cursor-outline");
+
+window.addEventListener("mousemove", function (e) {
+  const posX = e.clientX;
+  const posY = e.clientY;
+
+  // Actualización instantánea para el punto pequeño
+  cursorDot.style.left = `${posX}px`;
+  cursorDot.style.top = `${posY}px`;
+
+  // Actualización para el anillo (con el delay del transition CSS)
+  // El -20 es para centrar el círculo de 40px
+  cursorOutline.style.left = `${posX}px`;
+  cursorOutline.style.top = `${posY}px`;
+
+  cursorOutline.animate(
+    {
+      left: `${posX}px`,
+      top: `${posY}px`,
+    },
+    { duration: 500, fill: "forwards" },
+  );
+});
+
+// Interacción con elementos (Links, Botones, Acordeones)
+const interactivos = document.querySelectorAll(
+  "a, button, .accordion-button, .tech-badge",
+);
+
+interactivos.forEach((el) => {
+  el.addEventListener("mouseover", () => {
+    cursorDot.classList.add("cursor-hover-dot");
+    cursorOutline.classList.add("cursor-hover-outline");
+  });
+  el.addEventListener("mouseout", () => {
+    cursorDot.classList.remove("cursor-hover-dot");
+    cursorOutline.classList.remove("cursor-hover-outline");
+  });
+});
+
+// filter
+
+document.addEventListener("DOMContentLoaded", function () {
+  const filters = document.querySelectorAll(".filter-item");
+  const items = document.querySelectorAll(".portfolio-item");
+
+  filters.forEach((filter) => {
+    filter.addEventListener("click", function () {
+      // 1. Cambiar estado activo en el menú
+      filters.forEach((f) => f.classList.remove("active"));
+      this.classList.add("active");
+
+      const selectedFilter = this.getAttribute("data-filter");
+
+      // 2. Filtrar elementos
+      items.forEach((item) => {
+        if (selectedFilter === "all") {
+          item.classList.remove("hidden");
+        } else {
+          if (item.classList.contains(selectedFilter)) {
+            item.classList.remove("hidden");
+          } else {
+            item.classList.add("hidden");
+          }
+        }
+      });
+    });
+  });
+});

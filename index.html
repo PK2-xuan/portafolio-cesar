@@ -16,7 +16,60 @@
     <link rel="stylesheet" href="main.css" />
   </head>
 
+  <style>
+    /* Mantenemos el cursor nativo visible según pediste */
+    body {
+      cursor: default;
+
+      background-color: #1e1e1e;
+    }
+
+    /* Punto central sólido */
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #70d9e3;
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 10000;
+      /* Movimiento instantáneo */
+    }
+
+    /* Círculo exterior (Anillo) */
+    .cursor-outline {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #70d9e3;
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      /* La suavidad la manejaremos con JS para mayor control */
+      transition: transform 0.1s ease-out;
+      opacity: 0.7;
+    }
+
+    /* Efecto al pasar sobre elementos interactivos */
+    .cursor-hover-dot {
+      transform: scale(1.5);
+      background-color: #ae81ff; /* Cambia a morado al hacer hover */
+    }
+
+    .cursor-hover-outline {
+      transform: scale(1.8);
+      border-color: #ae81ff;
+      opacity: 0.4;
+    }
+  </style>
+
   <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
     <!-- Contenedor de imagen de fondo -->
     <div class="img-class-cont">
       <!-- Navbar inicial (visible desde el inicio) -->
@@ -268,7 +321,7 @@
             <div class="featured-project-label">
               <!-- <img  alt="arrow"  /> -->
               <!-- <div ></div> -->
-              <img src="" alt="" class="curved-arrow">
+              <img src="" alt="" class="curved-arrow" />
               <p class="mb-1 small text-uppercase fw-bold opacity-75">
                 Featured Project
               </p>
@@ -286,12 +339,183 @@
               />
             </div>
           </div>
-
-
         </div>
       </div>
     </section>
 
+    <!-- filter -->
+    <section class="portfolio-section py-5" id="projects">
+      <div class="container py-4">
+
+<div class="d-flex justify-content-start align-items-center gap-4 mb-5 filter-nav">
+    <span class="filter-label">Filter by</span>
+    
+    <span class="filter-item active" data-filter="all">
+        <strong>All</strong><sup>11</sup>
+    </span>
+    <span class="filter-item" data-filter="cat-data">
+        <strong>Data Visualization</strong><sup>02</sup>
+    </span>
+    <span class="filter-item" data-filter="cat-web">
+        <strong>Web Development</strong><sup>09</sup>
+    </span>
+</div>
+
+        <div class="row g-4" id="portfolio-grid">
+          <div class="col-md-4 portfolio-item cat-web">
+            <div class="project-card">
+              <div class="img-container">
+                <img src="xd.jfif" alt="Flight Local" class="img-fluid" />
+              </div>
+              <div class="project-info p-4">
+                <h3 class="h5 fw-bold mb-1">Flight Local (B2B Travel...)</h3>
+                <div class="text-wrapper">  
+                  <p class="category mb-0">Web Development</p>
+                  <p class="show-project mb-0">Show project —</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 portfolio-item cat-data">
+            <div class="project-card">
+              <div class="img-container">
+                <img src="xd.jfif" alt="AI Lab" class="img-fluid" />
+              </div>
+              <div class="project-info p-4">
+                <h3 class="h5 fw-bold mb-1">AI Lab Granada</h3>
+                <div class="text-wrapper">
+                  <p class="category mb-0">Data Visualization</p>
+                  <p class="show-project mb-0">Show project —</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 portfolio-item cat-web">
+            <div class="project-card">
+              <div class="img-container">
+                <img src="xd.jfif" alt="Khora" class="img-fluid" />
+              </div>
+              <div class="project-info p-4">
+                <h3 class="h5 fw-bold mb-1">Khora – Urban Thinkers...</h3>
+                <div class="text-wrapper">
+                  <p class="category mb-0">Web Development</p>
+                  <p class="show-project mb-0">Show project —</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8 portfolio-item cat-web">
+            <div class="project-card">
+              <div class="img-container">
+                <img src="xd.jfif" alt="Tryotel App" class="img-fluid" />
+              </div>
+              <div class="project-info p-4">
+                <h3 class="h5 fw-bold mb-1">
+                  Tryotel – Cross-Platform Travel App
+                </h3>
+                <div class="text-wrapper">
+                  <p class="category mb-0">Web Development</p>
+                  <p class="show-project mb-0">Show project —</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 portfolio-item cat-web">
+            <div class="project-card">
+              <div class="img-container">
+                <img src="xd.jfif" alt="Tapy" class="img-fluid" />
+              </div>
+              <div class="project-info p-4">
+                <h3 class="h5 fw-bold mb-1">Tapy – Download. Connect.</h3>
+                <div class="text-wrapper">
+                  <p class="category mb-0">Web Development</p>
+                  <p class="show-project mb-0">Show project —</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 portfolio-item cat-data">
+            <div class="project-card">
+              <div class="img-container">
+                <img src="xd.jfif" alt="Analytics" class="img-fluid" />
+              </div>
+              <div class="project-info p-4">
+                <h3 class="h5 fw-bold mb-1">Real-time Analytics</h3>
+                <div class="text-wrapper">
+                  <p class="category mb-0">Data Visualization</p>
+                  <p class="show-project mb-0">Show project —</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8 portfolio-item cat-web">
+            <div class="project-card">
+              <div class="img-container">
+                <img src="xd.jfif" alt="Walker IP" class="img-fluid" />
+              </div>
+              <div class="project-info p-4">
+                <h3 class="h5 fw-bold mb-1">Walker IP Pty Ltd</h3>
+                <div class="text-wrapper">
+                  <p class="category mb-0">Web Development</p>
+                  <p class="show-project mb-0">Show project —</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 portfolio-item cat-web">
+            <div class="project-card">
+              <div class="img-container">
+                <img src="xd.jfif" alt="E-commerce" class="img-fluid" />
+              </div>
+              <div class="project-info p-4">
+                <h3 class="h5 fw-bold mb-1">Modular E-commerce</h3>
+                <div class="text-wrapper">
+                  <p class="category mb-0">Web Development</p>
+                  <p class="show-project mb-0">Show project —</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 portfolio-item cat-web">
+            <div class="project-card">
+              <div class="img-container">
+                <img src="xd.jfif" alt="CMS" class="img-fluid" />
+              </div>
+              <div class="project-info p-4">
+                <h3 class="h5 fw-bold mb-1">Headless CMS Portal</h3>
+                <div class="text-wrapper">
+                  <p class="category mb-0">Web Development</p>
+                  <p class="show-project mb-0">Show project —</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 portfolio-item cat-web">
+            <div class="project-card">
+              <div class="img-container">
+                <img src="xd.jfif" alt="Fintech" class="img-fluid" />
+              </div>
+              <div class="project-info p-4">
+                <h3 class="h5 fw-bold mb-1">Fintech Interface</h3>
+                <div class="text-wrapper">
+                  <p class="category mb-0">Web Development</p>
+                  <p class="show-project mb-0">Show project —</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- experiencia -->
     <section class="experience-section py-5">
       <div class="container">
@@ -506,6 +730,7 @@
       </div>
     </section>
 
+    <!-- footer -->
     <footer class="footer-section">
       <div class="container-fluid p-0 container">
         <div class="row g-0">

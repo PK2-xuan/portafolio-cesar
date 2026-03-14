@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    /* Mantenemos el cursor nativo visible según pediste */
+    body {
+      cursor: default;
+
+      background-color: #1e1e1e;
+    }
+
+    /* Punto central sólido */
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #70d9e3;
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 10000;
+      /* Movimiento instantáneo */
+    }
+
+    /* Círculo exterior (Anillo) */
+    .cursor-outline {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #70d9e3;
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      /* La suavidad la manejaremos con JS para mayor control */
+      transition: transform 0.1s ease-out;
+      opacity: 0.7;
+    }
+
+    /* Efecto al pasar sobre elementos interactivos */
+    .cursor-hover-dot {
+      transform: scale(1.5);
+      background-color: #ae81ff; /* Cambia a morado al hacer hover */
+    }
+
+    .cursor-hover-outline {
+      transform: scale(1.8);
+      border-color: #ae81ff;
+      opacity: 0.4;
+    }
+  </style>
+
+  <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <script>
+      const cursorDot = document.querySelector(".cursor-dot");
+      const cursorOutline = document.querySelector(".cursor-outline");
+
+      window.addEventListener("mousemove", function (e) {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        // Actualización instantánea para el punto pequeño
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+
+        // Actualización para el anillo (con el delay del transition CSS)
+        // El -20 es para centrar el círculo de 40px
+        cursorOutline.style.left = `${posX}px`;
+        cursorOutline.style.top = `${posY}px`;
+
+        cursorOutline.animate(
+          {
+            left: `${posX}px`,
+            top: `${posY}px`,
+          },
+          { duration: 500, fill: "forwards" },
+        );
+      });
+
+      // Interacción con elementos (Links, Botones, Acordeones)
+      const interactivos = document.querySelectorAll(
+        "a, button, .accordion-button, .tech-badge",
+      );
+
+      interactivos.forEach((el) => {
+        el.addEventListener("mouseover", () => {
+          cursorDot.classList.add("cursor-hover-dot");
+          cursorOutline.classList.add("cursor-hover-outline");
+        });
+        el.addEventListener("mouseout", () => {
+          cursorDot.classList.remove("cursor-hover-dot");
+          cursorOutline.classList.remove("cursor-hover-outline");
+        });
+      });
+    </script>
+  </body>
+</html>

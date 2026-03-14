@@ -597,7 +597,7 @@ body {
 .curved-arrow {
   /* Ocultamos la imagen original con CSS */
   display: block;
-  width: 220px; 
+  width: 220px;
   height: auto;
   min-height: 120px;
 
@@ -632,4 +632,121 @@ body {
     margin-top: 2rem;
     transform: rotate(0deg);
   }
+}
+
+
+
+
+
+/* 
+=======
+========
+======== 
+*/
+
+
+
+/* Configuración General */
+.portfolio-section {
+    background-color: #1a191d;
+    color: white;
+}
+
+/* Navegación de Filtros */
+.filter-nav {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.filter-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+}
+
+.filter-item.active {
+    color: #ae81ff; /* Morado de marca */
+    border-bottom: 2px solid #ae81ff;
+    opacity: 1;
+}
+
+.filter-item sup {
+    font-size: 0.6rem;
+    margin-left: 3px;
+    opacity: 0.6;
+}
+
+/* Tarjeta de Proyecto */
+.project-card {
+    background-color: #1e1e21;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.img-container {
+    height: 380px; /* Altura estándar para el grid */
+    overflow: hidden;
+    background-color: #2a2a2e;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin deformar */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project-card:hover .img-container img {
+    transform: scale(1.08);
+}
+
+/* Animación de Texto (Intercambio) */
+.text-wrapper {
+    position: relative;
+    height: 24px;
+    overflow: hidden;
+}
+
+.category, .show-project {
+    position: absolute;
+    width: 100%;
+    font-size: 0.85rem;
+    transition: all 0.4s ease-in-out;
+}
+
+.category {
+    color: #a9b1d6;
+    top: 0;
+    opacity: 1;
+}
+
+.show-project {
+    color: #ae81ff;
+    top: 30px;
+    opacity: 0;
+    font-weight: 600;
+}
+
+.project-card:hover .category {
+    top: -30px;
+    opacity: 0;
+}
+
+.project-card:hover .show-project {
+    top: 0;
+    opacity: 1;
+}
+
+/* Clases para Filtrado JS */
+.portfolio-item {
+    transition: all 0.4s ease;
+}
+
+.portfolio-item.hidden {
+    display: none;
+    opacity: 0;
 }
